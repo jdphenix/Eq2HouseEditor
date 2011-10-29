@@ -1,0 +1,212 @@
+﻿<Window x:Class="Eq2HouseEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Yusdan's Layout Editor" Height="438" Width="898"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" OpacityMask="#FFFBDBDB" AllowsTransparency="False" WindowStyle="ThreeDBorderWindow">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="21" />
+            <RowDefinition Height="27" />
+            <RowDefinition Height="335*" />
+            <RowDefinition Height="16*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Menu Name="menuBar" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0" OpacityMask="#FFFFADAD">
+            <MenuItem Header="File">
+                <MenuItem Header="Copy Layout File" Name="menuCopyFile" Click="menuCopyFile_Click" />
+                <MenuItem Header="Open..." Name="menuOpen" Click="menuOpen_Click" />
+                <MenuItem Header="Save" Name="menuSave" Click="menuSave_Click" />
+                <MenuItem Header="Save As..." Name="menuSaveAs" Click="menuSaveAs_Click" />
+                <Separator />
+                <MenuItem Header="Exit" Name="menuExit" Click="menuExit_Click" />
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Copy" Name="menuCopy" Click="menuCopy_Click" />
+                <MenuItem Header="Paste" Name="menuPaste" Click="menuPaste_Click" />
+                <Separator />
+                <MenuItem Header="Undo" Name="menuUndo" Click="menuUndo_Click" />
+                <MenuItem Header="Redo" Name="menuRedo" Click="menuRedo_Click" />
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About Yusdan's Layout Editor" />
+            </MenuItem>
+        </Menu>
+        <ToolBarTray Name="toolBarTray" VerticalAlignment="Top" Grid.Row="1" OpacityMask="#FFFFADAD">
+            <ToolBar Name="toolBarEdit" VerticalAlignment="Top">
+                <Button Content="Copy" />
+                <Button Content="Paste" />
+                <Separator />
+                <Button Content="Copy Row" />
+                <Button Content="Paste Row" />
+            </ToolBar>
+            <ToolBar Name="toolBarGroup" VerticalAlignment="Top">
+                <Button Content="Create Group" Name="btnCreateGroup" Click="btnCreateGroup_Click" />
+                <Button Content="Rename Group" Name="btnRenameGroup" />
+                <Button Content="Edit Group Values" Name="btnEditGroup" Click="btnEditGroup_Click" />
+                <Button Content="Delete Group" Name="btnDeleteGroup" />
+            </ToolBar>
+        </ToolBarTray>
+        <TabControl Grid.Row="2" HorizontalAlignment="Stretch" Name="tabControl" VerticalAlignment="Stretch" OpacityMask="#FFFFADAD">
+            <TabItem Header="Spreadsheet View" Name="tabItemSpreadsheet">
+                <Grid>
+                    <ListView Name="lstItems" d:DataContext="{d:DesignData}">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn>
+                                    <GridViewColumnHeader Click="SortClick" 
+                                        Tag="ItemId" 
+                                        Content="Item ID" />
+                                        <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBox Text="{Binding Path=ItemId}" TextChanged="TextBox_TextChanged" 
+                                                Tag="ItemId" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn>
+                                    <GridViewColumnHeader Click="SortClick" 
+                                        Tag="Name" 
+                                        Content="Name" />
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBox Text="{Binding Path=Name}" TextChanged="TextBox_TextChanged"
+                                                Tag="Name" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn>
+                                    <GridViewColumnHeader Click="SortClick" 
+                                        Tag="X" 
+                                        Content="X" />
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBox Text="{Binding Path=X}" TextChanged="TextBox_TextChanged"
+                                                Tag="X" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn>
+                                    <GridViewColumnHeader Click="SortClick" 
+                                        Tag="Y" 
+                                        Content="Y" />
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBox Text="{Binding Path=Y}" TextChanged="TextBox_TextChanged"
+                                                Tag="Y" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn>
+                                    <GridViewColumnHeader Click="SortClick" 
+                                        Tag="Z" 
+                                        Content="Z" />
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBox Text="{Binding Path=Z}" TextChanged="TextBox_TextChanged"
+                                                Tag="Z" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn>
+                                    <GridViewColumnHeader Click="SortClick" 
+                                        Tag="Rot" 
+                                        Content="Rot" />
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBox Text="{Binding Path=Rotation}" TextChanged="TextBox_TextChanged"
+                                                Tag="Rotation" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn>
+                                    <GridViewColumnHeader Click="SortClick" 
+                                        Tag="Pitch" 
+                                        Content="Pitch" />
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBox Text="{Binding Path=Pitch}" TextChanged="TextBox_TextChanged"
+                                                Tag="Pitch" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn>
+                                    <GridViewColumnHeader Click="SortClick" 
+                                        Tag="Roll" 
+                                        Content="Roll" />
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBox Text="{Binding Path=Roll}" TextChanged="TextBox_TextChanged"
+                                                Tag="Roll" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn>
+                                    <GridViewColumnHeader Click="SortClick" 
+                                        Tag="Scale" 
+                                        Content="Scale" />
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBox Text="{Binding Path=Scale}" TextChanged="TextBox_TextChanged"
+                                                Tag="Scale" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn>
+                                    <GridViewColumnHeader Click="SortClick" 
+                                        Tag="Crated" 
+                                        Content="Crated" />
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBox Text="{Binding Path=Crated}" TextChanged="TextBox_TextChanged"
+                                                Tag="Crated" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn>
+                                    <GridViewColumnHeader Click="SortClick" 
+                                        Tag="Notes" 
+                                        Content="Notes" />
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBox Text="{Binding Path=Notes}" TextChanged="TextBox_TextChanged"
+                                                Tag="Notes" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Layout View" Name="tabItemLayout"></TabItem>
+        </TabControl>
+        <StatusBar Name="statusBar" Grid.Row="3" VerticalAlignment="Bottom">
+            <Label Name="statusBarLabel" />
+        </StatusBar>
+    </Grid>
+</Window>

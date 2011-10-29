@@ -1,0 +1,87 @@
+﻿<Window x:Class="Eq2HouseEditor.GroupEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GroupEditWindow" Height="300" Width="840"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" d:DataContext="{d:DesignData }">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120*" />
+            <ColumnDefinition Width="220*" />
+            <ColumnDefinition Width="478*" />
+        </Grid.ColumnDefinitions>
+        <ListView HorizontalAlignment="Stretch" MinWidth="0" Name="lstGroups" Grid.Column="0" 
+            ItemsSource="{Binding Path=_groups.Keys}" />
+        <GroupBox Grid.Column="1" Header="Direction Editing">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="1" Grid.Row="0" Content="North" Name="btnNorth" Click="btnDirectionClick" Tag="North" />
+                <Button Grid.Column="1" Grid.Row="2" Content="South" Name="btnSouth" Click="btnDirectionClick" Tag="South" />
+                <Button Grid.Column="0" Grid.Row="1" Content="West" Name="btnWest" Click="btnDirectionClick" Tag="West" />
+                <Button Grid.Column="2" Grid.Row="1" Content="East" Name="btnEast" Click="btnDirectionClick" Tag="East" />
+                <Button Grid.Column="0" Grid.Row="0" Content="Up" Name="btnUp" Click="btnDirectionClick" Tag="Up" />
+                <Button Grid.Column="0" Grid.Row="2" Content="Down" Name="btnDown" Click="btnDirectionClick" Tag="Down" />
+                <Button Grid.Column="0" Grid.Row="3" Content="Set" Name="btnSetDirection" Click="btnSetDirectionClick" Tag="SetDirection" />
+                <Button Grid.Column="1" Grid.Row="3" Content="Change" Name="btnChangeDirection" Click="btnChangeDirectionClick" Tag="ChangeDirection" />
+                <TextBox Grid.Column="2" Grid.Row="3" MaxHeight="24" Background="#FFFFDEDE" Name="txtDirection"></TextBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Column="2" Header="Value Editing">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="X" FontWeight="Bold" TextAlignment="Right" Foreground="Black" Background="{x:Null}" FontSize="14"></TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Y" FontWeight="Bold" TextAlignment="Right" Foreground="Black" Background="{x:Null}" FontSize="14"></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Z" FontWeight="Bold" TextAlignment="Right" Foreground="Black" Background="{x:Null}" FontSize="14"></TextBlock>
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Rotation" FontWeight="Bold" TextAlignment="Right" Foreground="Black" Background="{x:Null}" FontSize="14"></TextBlock>
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Pitch" FontWeight="Bold" TextAlignment="Right" Foreground="Black" Background="{x:Null}" FontSize="14"></TextBlock>
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Roll" FontWeight="Bold" TextAlignment="Right" Foreground="Black" Background="{x:Null}" FontSize="14"></TextBlock>
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="Scale" FontWeight="Bold" TextAlignment="Right" Foreground="Black" Background="{x:Null}" FontSize="14"></TextBlock>
+            <TextBox Grid.Row="0" Grid.Column="1" Background="#FFFFDEDE" Name="txtX"></TextBox>
+                <TextBox Grid.Row="1" Grid.Column="1" Background="#FFFFDEDE" Name="txtY"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="1" Background="#FFFFDEDE" Name="txtZ"></TextBox>
+                <TextBox Grid.Row="3" Grid.Column="1" Background="#FFFFDEDE" Name="txtRotation"></TextBox>
+                <TextBox Grid.Row="4" Grid.Column="1" Background="#FFFFDEDE" Name="txtPitch"></TextBox>
+                <TextBox Grid.Row="5" Grid.Column="1" Background="#FFFFDEDE" Name="txtRoll"></TextBox>
+                <TextBox Grid.Row="6" Grid.Column="1" Background="#FFFFDEDE" Name="txtScale"></TextBox>
+                <Button Grid.Row="0" Grid.Column="2" Content="Change" Name="btnChangeX" Click="btnChangeClick" Tag="ChangeX" />
+            <Button Grid.Row="1" Grid.Column="2" Content="Change" Name="btnChangeY" Click="btnChangeClick" Tag="ChangeY" />
+            <Button Grid.Row="2" Grid.Column="2" Content="Change" Name="btnChangeZ" Click="btnChangeClick" Tag="ChangeZ" />
+            <Button Grid.Row="3" Grid.Column="2" Content="Change" Name="btnChangeRotation" Click="btnChangeClick" Tag="ChangeRotation" />
+                <Button Grid.Row="4" Grid.Column="2" Content="Change" Name="btnChangePitch" Click="btnChangeClick" Tag="ChangePitch" />
+                <Button Grid.Row="5" Grid.Column="2" Content="Change" Name="btnChangeRoll" Click="btnChangeClick" Tag="ChangeRoll" />
+            <Button Grid.Row="6" Grid.Column="2" Content="Change" Name="btnChangeScale" Click="btnChangeClick" Tag="ChangeScale" />
+            <Button Grid.Row="0" Grid.Column="3" Content="Set" Name="btnSetX" Click="btnSetClick" Tag="SetX" />
+            <Button Grid.Row="1" Grid.Column="3" Content="Set" Name="btnSetY" Click="btnSetClick" Tag="SetY" />
+            <Button Grid.Row="2" Grid.Column="3" Content="Set" Name="getSetZ" Click="btnSetClick" Tag="SetZ" />
+            <Button Grid.Row="3" Grid.Column="3" Content="Set" Name="btnSetRotation" Click="btnSetClick" Tag="SetRotation" />
+            <Button Grid.Row="4" Grid.Column="3" Content="Set" Name="btnSetPitch" Click="btnSetClick" Tag="SetPitch" />
+            <Button Grid.Row="5" Grid.Column="3" Content="Set" Name="btnSetRoll" Click="btnSetClick" Tag="SetRoll" />
+            <Button Grid.Row="6" Grid.Column="3" Content="Set" Name="btnSetScale" Click="btnSetClick" Tag="SetScale" />
+        </Grid>
+        </GroupBox>
+    </Grid>
+</Window>
